@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ling's Studio | 博客文章</title>
+  <meta name="description" content="博客文章页面。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="回到首页">
+        <span class="brand-mark">LS</span>
+        <span class="brand-text">
+          <strong id="post-site-name">Ling's Studio</strong>
+          <span id="post-site-tagline">翻译、推荐与写作</span>
+        </span>
+      </a>
+
+      <div class="locale-switcher" aria-label="语言切换">
+        <div class="locale-actions">
+          <button class="locale-button is-active" type="button" data-locale="zh-Hans">简体</button>
+          <button class="locale-button" type="button" data-locale="zh-Hant">繁體</button>
+          <button class="locale-button" type="button" data-locale="ja">日本語</button>
+        </div>
+      </div>
+
+      <nav class="site-nav" aria-label="文章导航">
+        <a id="post-back-blog" href="blog.html">返回博客</a>
+      </nav>
+    </header>
+
+    <main>
+      <article class="section post-reading">
+        <p class="post-meta" id="post-meta"></p>
+        <h1 class="post-reading-title" id="post-title">博客文章</h1>
+        <div class="post-reading-body" id="post-body"></div>
+      </article>
+    </main>
+  </div>
+
+  <script src="site-data.js"></script>
+  <script src="post.js"></script>
+</body>
+</html>

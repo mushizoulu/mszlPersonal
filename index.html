@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ling's Studio | 翻译作品与博客</title>
+  <meta
+    name="description"
+    content="展示个人翻译作品、精选推荐与博客文章的个人网站。"
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="回到首页">
+        <span class="brand-mark">LS</span>
+        <span class="brand-text">
+          <strong id="site-name">Ling's Studio</strong>
+          <span id="site-tagline">翻译、推荐与写作</span>
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        菜单
+      </button>
+
+      <div class="locale-switcher" aria-label="语言切换">
+        <div class="locale-actions">
+          <button class="locale-button is-active" type="button" data-locale="zh-Hans">简体</button>
+          <button class="locale-button" type="button" data-locale="zh-Hant">繁體</button>
+          <button class="locale-button" type="button" data-locale="ja">日本語</button>
+        </div>
+      </div>
+
+      <nav id="site-nav" class="site-nav" aria-label="主导航">
+        <a id="nav-picks" href="#picks">推荐清单</a>
+        <a id="nav-works" href="#works">翻译作品</a>
+        <a id="nav-blog" href="#blog">博客</a>
+        <a id="nav-about" href="#about">关于我</a>
+        <a id="nav-contact" class="nav-cta" href="#contact">合作联系</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow" id="hero-note">Bilingual craft for readers with taste</p>
+          <h1 id="hero-title">把翻译作品、推荐清单和长期写作放在同一个有质感的家里。</h1>
+          <p class="hero-description" id="hero-description">
+            这里展示我的翻译项目、我愿意公开推荐的商品，以及关于语言、阅读与创作的博客文章。
+          </p>
+
+          <div class="hero-actions">
+            <a class="button-primary" id="hero-primary" href="#picks">先看推荐</a>
+            <a class="button-secondary" id="hero-secondary" href="blog.html">进入博客</a>
+          </div>
+
+          <ul class="hero-stats" id="hero-stats"></ul>
+        </div>
+
+        <aside class="hero-panel">
+          <p class="panel-label" id="spotlight-label">本月聚焦</p>
+          <h2 id="spotlight-title">文学与文化类翻译</h2>
+          <p id="spotlight-copy">
+            以清晰、耐读、可传播为标准，持续整理已完成作品与正在推进的方向。
+          </p>
+          <a id="spotlight-link" class="panel-link" href="works.html">查看精选作品</a>
+        </aside>
+      </section>
+
+      <section class="section picks-section" id="picks">
+        <div class="section-heading">
+          <p class="eyebrow" id="picks-eyebrow">Curated Affiliate Picks</p>
+          <h2><a class="section-title-link" id="picks-title" href="picks.html">推荐清单</a></h2>
+          <p id="picks-description">适合放你愿意长期推荐的书、工具、课程或生活用品，并明确标注推荐理由。</p>
+        </div>
+        <div class="pick-list" id="picks-list"></div>
+        <p class="affiliate-note" id="affiliate-note"></p>
+      </section>
+
+      <section class="section" id="works">
+        <div class="section-heading">
+          <p class="eyebrow" id="works-eyebrow">Featured Translations</p>
+          <h2><a class="section-title-link" id="works-title" href="works.html">翻译作品</a></h2>
+          <p id="works-description">优先展示最能代表你风格的项目，每个条目都可以放成品链接、购买链接或合作说明。</p>
+        </div>
+        <div class="card-grid" id="works-grid"></div>
+      </section>
+
+      <section class="section blog-section" id="blog">
+        <div class="section-heading">
+          <p class="eyebrow" id="blog-eyebrow">Notes & Essays</p>
+          <h2><a class="section-title-link" id="blog-title" href="blog.html">博客</a></h2>
+          <p id="blog-description">写关于翻译、阅读、写作、个人项目经营，或者任何你想长期积累的主题。</p>
+        </div>
+        <div class="post-list post-grid" id="post-list"></div>
+      </section>
+
+      <section class="section about-section" id="about">
+        <div class="section-heading">
+          <p class="eyebrow" id="about-eyebrow">About</p>
+          <h2><a class="section-title-link" id="about-title" href="#about">关于我</a></h2>
+        </div>
+        <div class="about-card">
+          <p id="about-copy">
+            我是一名长期关注语言、阅读与内容传播的创作者。这个网站用来集中展示作品、推荐值得购买的东西，以及持续发表博客文章。
+          </p>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="contact-card">
+          <div>
+            <p class="eyebrow" id="contact-eyebrow">Contact</p>
+            <h2><a class="section-title-link" id="contact-title" href="#contact">如果你想合作、约稿或交换想法</a></h2>
+            <p id="contact-copy">欢迎通过邮箱联系我，我会在合适的时候回复。</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p id="footer-copy">© 2026 Ling's Studio. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="site-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
