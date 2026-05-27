@@ -44,7 +44,7 @@
   function loadScript(path) {
     return new Promise((resolve) => {
       const script = document.createElement("script");
-      script.src = path;
+      script.src = `${path}?v=20260527b`;
       script.onload = () => resolve();
       script.onerror = () => resolve();
       document.head.appendChild(script);
