@@ -3,6 +3,7 @@ const homeDataReady = window.siteDataReady || Promise.resolve(window.siteData);
 homeDataReady.then((siteData) => {
   const { locales, itemLimit } = siteData;
   const homeWorksLimit = Math.min(9, itemLimit);
+  const homePostsLimit = 12;
   const localeButtons = Array.from(document.querySelectorAll(".locale-button"));
   const heroStats = document.getElementById("hero-stats");
   const worksGrid = document.getElementById("works-grid");
@@ -26,13 +27,35 @@ homeDataReady.then((siteData) => {
     return items.slice(0, itemLimit);
   }
 
+  function getSiteAgeDays() {
+    const launchedAt = new Date("2026-05-27T00:00:00+09:00");
+    const now = new Date();
+    const diff = now.getTime() - launchedAt.getTime();
+    return Math.max(1, Math.floor(diff / 86400000) + 1);
+  }
+
   function createMetaChips(items, className) {
     return items.map((item) => `<span class="${className}">${item}</span>`).join("");
   }
 
   function renderStats(localeData) {
+    const statItems = [
+      {
+        value: String(localeData.works.length),
+        label: localeData.stats[0]?.label || ""
+      },
+      {
+        value: String(localeData.posts.length),
+        label: localeData.stats[1]?.label || ""
+      },
+      {
+        value: String(getSiteAgeDays()),
+        label: localeData.stats[2]?.label || ""
+      }
+    ];
+
     heroStats.innerHTML = "";
-    localeData.stats.forEach((item) => {
+    statItems.forEach((item) => {
       const li = document.createElement("li");
       li.innerHTML = `
         <span class="stat-value">${item.value}</span>
@@ -43,8 +66,8 @@ homeDataReady.then((siteData) => {
   }
 
   function renderSpotlight(localeData) {
-    const latestWorks = localeData.works.slice(0, 3);
-    const latestPosts = localeData.posts.slice(0, 3);
+    const latestWorks = localeData.works.slice(0, 4);
+    const latestPosts = localeData.posts.slice(0, 4);
 
     spotlightCopy.innerHTML = `
       <div class="spotlight-group">
@@ -108,7 +131,7 @@ homeDataReady.then((siteData) => {
 
   function renderPosts(localeData) {
     postList.innerHTML = "";
-    limitItems(localeData.posts).forEach((post) => {
+    localeData.posts.slice(0, homePostsLimit).forEach((post) => {
       const article = document.createElement("article");
       article.className = "post-card";
       article.innerHTML = `

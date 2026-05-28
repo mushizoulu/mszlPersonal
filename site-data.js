@@ -9,13 +9,13 @@ window.siteData = {
         name: "むしぞる中尉",
         tagline: "翻译、推荐与写作",
         heroNote: "Bilingual craft for readers with taste",
-        heroTitle: "把翻译作品、推荐清单和长期写作放在同一个有质感的家里。",
+        heroTitle: "如果日本右翼把外国人都赶出日本，那3K工作谁来做？",
         heroDescription: "这里展示我的翻译项目、我愿意公开推荐的商品，以及关于语言、阅读与创作的博客文章。",
         latestLabel: "最新发布",
         latestTitle: "翻译与博客",
         latestWorksHeading: "最新翻译作品",
         latestPostsHeading: "最新博客文章",
-        about: "我是一名长期关注语言、阅读与内容传播的创作者。这个网站用来集中展示作品、推荐值得购买的东西，以及持续发表博客文章。",
+        about: "社团名：むしぞる中尉。\n出身地：中共国。\n爱好：ACGN，网球，F1。\n最喜欢的声优：楠木ともり。",
         contactTitle: "如果你想合作、约稿或交换想法",
         contactCopy: "欢迎通过邮箱联系我，我会在合适的时候回复。",
         contactEmail: "mushizoulu@yahoo.co.jp",
@@ -63,9 +63,9 @@ window.siteData = {
         contactEyebrow: "Contact"
       },
       stats: [
-        { value: "12+", label: "可展示作品" },
-        { value: "3", label: "主要栏目" },
-        { value: "1", label: "统一主页" }
+        { value: "0", label: "翻译作品总数" },
+        { value: "0", label: "博客总数" },
+        { value: "0", label: "建站天数" }
       ],
       worksPage: {
         title: "翻译作品",
@@ -103,13 +103,13 @@ window.siteData = {
         name: "むしぞる中尉",
         tagline: "翻譯、推薦與寫作",
         heroNote: "Bilingual craft for readers with taste",
-        heroTitle: "把翻譯作品、推薦清單和長期寫作放在同一個有質感的家裡。",
+        heroTitle: "如果日本右翼把外國人都趕出日本，那3K工作誰來做？",
         heroDescription: "這裡展示我的翻譯項目、我願意公開推薦的商品，以及關於語言、閱讀與創作的部落格文章。",
         latestLabel: "最新發布",
         latestTitle: "翻譯與部落格",
         latestWorksHeading: "最新翻譯作品",
         latestPostsHeading: "最新部落格文章",
-        about: "我是一名長期關注語言、閱讀與內容傳播的創作者。這個網站用來集中展示作品、推薦值得購買的東西，以及持續發表部落格文章。",
+        about: "社團名：むしぞる中尉。\n出身地：中共國。\n愛好：ACGN、網球、F1。\n最喜歡的聲優：楠木ともり。",
         contactTitle: "如果你想合作、約稿或交換想法",
         contactCopy: "歡迎透過電子郵件聯絡我，我會在合適的時候回覆。",
         contactEmail: "mushizoulu@yahoo.co.jp",
@@ -157,9 +157,9 @@ window.siteData = {
         contactEyebrow: "Contact"
       },
       stats: [
-        { value: "12+", label: "可展示作品" },
-        { value: "3", label: "主要欄目" },
-        { value: "1", label: "統一首頁" }
+        { value: "0", label: "翻譯作品總數" },
+        { value: "0", label: "部落格總數" },
+        { value: "0", label: "建站天數" }
       ],
       worksPage: {
         title: "翻譯作品",
@@ -197,13 +197,13 @@ window.siteData = {
         name: "むしぞる中尉",
         tagline: "翻訳・おすすめ・ブログ",
         heroNote: "Bilingual craft for readers with taste",
-        heroTitle: "翻訳作品、おすすめ、長く書き続ける文章を同じ場所に置く。",
+        heroTitle: "もし日本の右翼が外国人を全員日本から追い出したら、3Kの仕事は誰がやるのか？",
         heroDescription: "ここでは翻訳作品、公開でおすすめしたい商品、そして言語・読書・創作についてのブログ記事をまとめています。",
         latestLabel: "最新更新",
         latestTitle: "翻訳とブログ",
         latestWorksHeading: "最新の翻訳作品",
         latestPostsHeading: "最新のブログ記事",
-        about: "私は言語、読書、コンテンツ発信に長く関心を持ってきた書き手です。このサイトでは作品、おすすめしたいもの、そしてブログ記事をまとめて公開しています。",
+        about: "サークル名：むしぞる中尉。\n出身地：中国。\n趣味：ACGN、テニス、F1。\nいちばん好きな声優：楠木ともり。",
         contactTitle: "お仕事・依頼・感想交換はこちら",
         contactCopy: "メールでご連絡ください。確認でき次第、折り返します。",
         contactEmail: "mushizoulu@yahoo.co.jp",
@@ -251,9 +251,9 @@ window.siteData = {
         contactEyebrow: "Contact"
       },
       stats: [
-        { value: "12+", label: "掲載できる作品数" },
-        { value: "3", label: "主要カテゴリ" },
-        { value: "1", label: "統合トップページ" }
+        { value: "0", label: "翻訳作品総数" },
+        { value: "0", label: "ブログ総数" },
+        { value: "0", label: "開設日数" }
       ],
       worksPage: {
         title: "翻訳作品",
