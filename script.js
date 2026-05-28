@@ -2,11 +2,13 @@ const homeDataReady = window.siteDataReady || Promise.resolve(window.siteData);
 
 homeDataReady.then((siteData) => {
   const { locales, itemLimit } = siteData;
+  const homeWorksLimit = Math.min(9, itemLimit);
   const localeButtons = Array.from(document.querySelectorAll(".locale-button"));
   const heroStats = document.getElementById("hero-stats");
   const worksGrid = document.getElementById("works-grid");
   const picksList = document.getElementById("picks-list");
   const postList = document.getElementById("post-list");
+  const spotlightCopy = document.getElementById("spotlight-copy");
   const menuToggle = document.querySelector(".menu-toggle");
   const siteNav = document.getElementById("site-nav");
 
@@ -40,9 +42,37 @@ homeDataReady.then((siteData) => {
     });
   }
 
+  function renderSpotlight(localeData) {
+    const latestWorks = localeData.works.slice(0, 3);
+    const latestPosts = localeData.posts.slice(0, 3);
+
+    spotlightCopy.innerHTML = `
+      <div class="spotlight-group">
+        <p class="spotlight-group-title">${localeData.site.latestWorksHeading}</p>
+        <ul class="spotlight-list">
+          ${latestWorks.map((work) => `
+            <li>
+              <a href="${work.link}" target="_blank" rel="noreferrer">${work.title}</a>
+            </li>
+          `).join("")}
+        </ul>
+      </div>
+      <div class="spotlight-group">
+        <p class="spotlight-group-title">${localeData.site.latestPostsHeading}</p>
+        <ul class="spotlight-list">
+          ${latestPosts.map((post) => `
+            <li>
+              <a href="post.html?slug=${post.slug}">${post.title}</a>
+            </li>
+          `).join("")}
+        </ul>
+      </div>
+    `;
+  }
+
   function renderWorks(localeData) {
     worksGrid.innerHTML = "";
-    limitItems(localeData.works).forEach((work) => {
+    localeData.works.slice(0, homeWorksLimit).forEach((work) => {
       const article = document.createElement("article");
       article.className = "card";
       article.innerHTML = `
@@ -105,14 +135,16 @@ homeDataReady.then((siteData) => {
     setText("hero-note", localeData.site.heroNote);
     setText("hero-title", localeData.site.heroTitle);
     setText("hero-description", localeData.site.heroDescription);
-    setText("spotlight-label", localeData.site.spotlightLabel);
-    setText("spotlight-title", localeData.site.spotlightTitle);
-    setText("spotlight-copy", localeData.site.spotlightCopy);
-    setText("spotlight-link", localeData.site.spotlightLinkText);
+    setText("spotlight-label", localeData.site.latestLabel);
+    setText("spotlight-title", localeData.site.latestTitle);
     setText("about-copy", localeData.site.about);
     setText("contact-copy", localeData.site.contactCopy);
     setText("affiliate-note", localeData.site.affiliateDisclosure);
     setText("footer-copy", localeData.site.footer);
+    setText("works-more-link", localeData.site.worksMoreText);
+    setText("blog-more-link", localeData.site.blogMoreText);
+    setText("contact-email-link", localeData.site.contactEmail);
+    document.getElementById("contact-email-link").setAttribute("href", `mailto:${localeData.site.contactEmail}`);
 
     setText("nav-picks", localeData.nav.picks);
     setText("nav-works", localeData.nav.works);
@@ -141,14 +173,16 @@ homeDataReady.then((siteData) => {
     document.querySelector('[data-locale="ja"]').textContent = localeData.switcher.ja;
 
     menuToggle.textContent = localeData.buttons.menu;
-    document.getElementById("spotlight-link").setAttribute("href", "works.html");
     document.getElementById("hero-primary").setAttribute("href", "#picks");
     document.getElementById("picks-title").setAttribute("href", "picks.html");
     document.getElementById("hero-secondary").setAttribute("href", "blog.html");
     document.getElementById("works-title").setAttribute("href", "works.html");
     document.getElementById("blog-title").setAttribute("href", "blog.html");
+    document.getElementById("works-more-link").setAttribute("href", "works.html");
+    document.getElementById("blog-more-link").setAttribute("href", "blog.html");
 
     renderStats(localeData);
+    renderSpotlight(localeData);
     renderWorks(localeData);
     renderPicks(localeData);
     renderPosts(localeData);

@@ -4,10 +4,104 @@ pickPostDataReady.then((siteData) => {
   const pickPostLocales = siteData.locales;
   const pickPostButtons = Array.from(document.querySelectorAll(".locale-button"));
   const pickPostParams = new URLSearchParams(window.location.search);
+  const pickPostBody = document.getElementById("pick-post-body");
 
   let pickPostLocale = pickPostLocales[window.localStorage.getItem("site-locale")]
     ? window.localStorage.getItem("site-locale")
     : "zh-Hans";
+
+  function renderBodyContent(container, items) {
+    container.innerHTML = "";
+
+    if (!Array.isArray(items)) {
+      return;
+    }
+
+    items.forEach((item) => {
+      if (typeof item === "string") {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = item;
+        container.appendChild(paragraph);
+        return;
+      }
+
+      if (!item || typeof item !== "object") {
+        return;
+      }
+
+      if (item.type === "image" && typeof item.src === "string" && item.src.trim()) {
+        const figure = document.createElement("figure");
+        figure.className = "post-body-figure";
+
+        const image = document.createElement("img");
+        image.className = "post-body-image";
+        image.src = item.src;
+        image.alt = typeof item.alt === "string" ? item.alt : "";
+        image.loading = "lazy";
+
+        figure.appendChild(image);
+
+        if (typeof item.caption === "string" && item.caption.trim()) {
+          const caption = document.createElement("figcaption");
+          caption.className = "post-body-caption";
+          caption.textContent = item.caption;
+          figure.appendChild(caption);
+        }
+
+        container.appendChild(figure);
+        return;
+      }
+
+      if (item.type !== "table" || !Array.isArray(item.rows) || item.rows.length === 0) {
+        return;
+      }
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "post-body-table-wrap";
+
+      const table = document.createElement("table");
+      table.className = "post-body-table";
+
+      if (Array.isArray(item.headers) && item.headers.length > 0) {
+        const thead = document.createElement("thead");
+        const headerRow = document.createElement("tr");
+
+        item.headers.forEach((header) => {
+          const th = document.createElement("th");
+          th.scope = "col";
+          th.textContent = `${header ?? ""}`;
+          headerRow.appendChild(th);
+        });
+
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+      }
+
+      const tbody = document.createElement("tbody");
+
+      item.rows.forEach((row) => {
+        if (!Array.isArray(row)) {
+          return;
+        }
+
+        const tr = document.createElement("tr");
+        row.forEach((cell) => {
+          const td = document.createElement("td");
+          td.textContent = `${cell ?? ""}`;
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+
+      if (!tbody.children.length) {
+        return;
+      }
+
+      table.appendChild(tbody);
+      wrapper.appendChild(table);
+      container.appendChild(wrapper);
+    });
+  }
 
   function renderPickPost(localeKey) {
     pickPostLocale = localeKey;
@@ -32,7 +126,7 @@ pickPostDataReady.then((siteData) => {
     if (!pick) {
       document.title = `${localeData.site.name} | ${localeData.pickPostPage.missingTitle}`;
       document.getElementById("pick-post-title").textContent = localeData.pickPostPage.missingTitle;
-      document.getElementById("pick-post-body").innerHTML = `<p>${localeData.pickPostPage.missingBody}</p>`;
+      renderBodyContent(pickPostBody, [localeData.pickPostPage.missingBody]);
       document.getElementById("pick-product-link").textContent = localeData.picksPage.viewProductText;
       document.getElementById("pick-product-link").href = "#";
       return;
@@ -41,7 +135,7 @@ pickPostDataReady.then((siteData) => {
     document.title = `${localeData.site.name} | ${pick.title}`;
     document.querySelector('meta[name="description"]').setAttribute("content", pick.copy);
     document.getElementById("pick-post-title").textContent = pick.title;
-    document.getElementById("pick-post-body").innerHTML = pick.body.map((paragraph) => `<p>${paragraph}</p>`).join("");
+    renderBodyContent(pickPostBody, pick.body);
     document.getElementById("pick-product-link").textContent = localeData.picksPage.viewProductText;
     document.getElementById("pick-product-link").href = pick.productLink;
   }

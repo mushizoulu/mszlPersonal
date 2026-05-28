@@ -4,9 +4,9 @@ window.siteData = {
     "zh-Hans": {
       site: {
         htmlLang: "zh-CN",
-        title: "Ling's Studio | 翻译作品与博客",
+        title: "むしぞる中尉 | 翻译作品与博客",
         description: "展示个人翻译作品、精选推荐与博客文章的个人网站。",
-        name: "Ling's Studio",
+        name: "むしぞる中尉",
         tagline: "翻译、推荐与写作",
         heroNote: "Bilingual craft for readers with taste",
         heroTitle: "把翻译作品、推荐清单和长期写作放在同一个有质感的家里。",
@@ -15,12 +15,18 @@ window.siteData = {
         spotlightTitle: "文学与文化类翻译",
         spotlightCopy: "以清晰、耐读、可传播为标准，持续整理已完成作品与正在推进的方向。",
         spotlightLinkText: "查看精选作品",
+        latestLabel: "最新发布",
+        latestTitle: "翻译与博客",
+        latestWorksHeading: "最新翻译作品",
+        latestPostsHeading: "最新博客",
+        worksMoreText: "查看所有翻译作品",
+        blogMoreText: "查看所有博客",
         about: "我是一名长期关注语言、阅读与内容传播的创作者。这个网站用来集中展示作品、推荐值得购买的东西，以及持续发表博客文章。",
         contactTitle: "如果你想合作、约稿或交换想法",
         contactCopy: "欢迎通过邮箱联系我，我会在合适的时候回复。",
-        contactEmail: "hello@example.com",
+        contactEmail: "mushizoulu@yahoo.co.jp",
         affiliateDisclosure: "说明：本页部分推荐链接未来可以替换为 affiliate 链接。如果访客通过这些链接购买，我可能获得佣金，但只会推荐我真正认可的内容。",
-        footer: "© 2026 Ling's Studio. All rights reserved."
+        footer: "© 2026 むしぞる中尉. All rights reserved."
       },
       nav: {
         picks: "推荐清单",
@@ -46,7 +52,7 @@ window.siteData = {
       sections: {
         worksEyebrow: "Featured Translations",
         worksTitle: "翻译作品",
-        worksDescription: "优先展示最能代表你风格的项目，最多显示十条内容。",
+        worksDescription: "优先展示最能代表你风格的项目，最多显示九条内容。",
         picksEyebrow: "Curated Affiliate Picks",
         picksTitle: "推荐清单",
         picksDescription: "适合放你愿意长期推荐的书、工具、课程或生活用品，最多显示十条内容。",
@@ -200,9 +206,9 @@ window.siteData = {
     "zh-Hant": {
       site: {
         htmlLang: "zh-Hant",
-        title: "Ling's Studio | 翻譯作品與部落格",
+        title: "むしぞる中尉 | 翻譯作品與部落格",
         description: "展示個人翻譯作品、精選推薦與部落格文章的個人網站。",
-        name: "Ling's Studio",
+        name: "むしぞる中尉",
         tagline: "翻譯、推薦與寫作",
         heroNote: "Bilingual craft for readers with taste",
         heroTitle: "把翻譯作品、推薦清單和長期寫作放在同一個有質感的家裡。",
@@ -211,12 +217,18 @@ window.siteData = {
         spotlightTitle: "文學與文化類翻譯",
         spotlightCopy: "以清晰、耐讀、可傳播為標準，持續整理已完成作品與正在推進的方向。",
         spotlightLinkText: "查看精選作品",
+        latestLabel: "最新發布",
+        latestTitle: "翻譯與部落格",
+        latestWorksHeading: "最新翻譯作品",
+        latestPostsHeading: "最新部落格",
+        worksMoreText: "查看所有翻譯作品",
+        blogMoreText: "查看所有部落格",
         about: "我是一名長期關注語言、閱讀與內容傳播的創作者。這個網站用來集中展示作品、推薦值得購買的東西，以及持續發表部落格文章。",
         contactTitle: "如果你想合作、約稿或交換想法",
         contactCopy: "歡迎透過電子郵件聯絡我，我會在合適的時候回覆。",
-        contactEmail: "hello@example.com",
+        contactEmail: "mushizoulu@yahoo.co.jp",
         affiliateDisclosure: "說明：本頁部分推薦連結未來可以替換為 affiliate 連結。如果訪客透過這些連結購買，我可能獲得佣金，但只會推薦我真正認可的內容。",
-        footer: "© 2026 Ling's Studio. All rights reserved."
+        footer: "© 2026 むしぞる中尉. All rights reserved."
       },
       nav: {
         picks: "推薦清單",
@@ -242,7 +254,7 @@ window.siteData = {
       sections: {
         worksEyebrow: "Featured Translations",
         worksTitle: "翻譯作品",
-        worksDescription: "優先展示最能代表你風格的項目，最多顯示十條內容。",
+        worksDescription: "優先展示最能代表你風格的項目，最多顯示九條內容。",
         picksEyebrow: "Curated Affiliate Picks",
         picksTitle: "推薦清單",
         picksDescription: "適合放你願意長期推薦的書、工具、課程或生活用品，最多顯示十條內容。",
@@ -396,9 +408,9 @@ window.siteData = {
     "ja": {
       site: {
         htmlLang: "ja",
-        title: "Ling's Studio | 翻訳作品とブログ",
+        title: "むしぞる中尉 | 翻訳作品とブログ",
         description: "翻訳作品、厳選したおすすめ商品、ブログ記事をまとめた個人サイトです。",
-        name: "Ling's Studio",
+        name: "むしぞる中尉",
         tagline: "翻訳・おすすめ・ブログ",
         heroNote: "Bilingual craft for readers with taste",
         heroTitle: "翻訳作品も、おすすめリストも、長く書き続けるブログも、ひとつの場所にまとめる。",
@@ -407,12 +419,18 @@ window.siteData = {
         spotlightTitle: "文学・カルチャー系翻訳",
         spotlightCopy: "読みやすさと伝わりやすさを軸に、完成した仕事と進行中のテーマを整理して見せていきます。",
         spotlightLinkText: "注目作品を見る",
+        latestLabel: "最新公開",
+        latestTitle: "翻訳とブログ",
+        latestWorksHeading: "最新の翻訳作品",
+        latestPostsHeading: "最新のブログ",
+        worksMoreText: "翻訳作品をすべて見る",
+        blogMoreText: "ブログをすべて見る",
         about: "私は言語、読書、コンテンツ発信を長く追いかけている制作者です。このサイトでは作品紹介、購入を勧めたいものの紹介、そしてブログ更新を一か所にまとめています。",
         contactTitle: "仕事の相談や感想の共有はこちら",
         contactCopy: "メールでご連絡ください。タイミングを見て返信します。",
-        contactEmail: "hello@example.com",
+        contactEmail: "mushizoulu@yahoo.co.jp",
         affiliateDisclosure: "注記：このページの一部リンクは今後 affiliate リンクに差し替える可能性があります。購入につながった場合に報酬を受け取ることがありますが、本当に勧めたいものだけを掲載します。",
-        footer: "© 2026 Ling's Studio. All rights reserved."
+        footer: "© 2026 むしぞる中尉. All rights reserved."
       },
       nav: {
         picks: "おすすめ",
@@ -438,7 +456,7 @@ window.siteData = {
       sections: {
         worksEyebrow: "Featured Translations",
         worksTitle: "翻訳作品",
-        worksDescription: "代表的な案件を優先して掲載し、表示件数は最大十件に絞っています。",
+        worksDescription: "代表的な案件を優先して掲載し、表示件数は最大九件に絞っています。",
         picksEyebrow: "Curated Affiliate Picks",
         picksTitle: "おすすめ",
         picksDescription: "長く勧めたい本や道具、講座、日用品を掲載し、表示件数は最大十件にしています。",
