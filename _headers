@@ -1,3 +1,9 @@
+/asset-version.js
+  Cache-Control: no-store
+
+/asset-loader.js
+  Cache-Control: no-store
+
 /
   Cache-Control: no-store
 
