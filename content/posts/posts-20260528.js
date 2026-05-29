@@ -438,7 +438,7 @@ window.siteContentChunks.push({
         "お読みいただきありがとうございました！"
       ]
     },
-    {
+   /* {
       slug: "xinggou-future-not-a-dream",
       category: "Blogging",
       title: "[转] 兴狗未来不是梦",
@@ -488,7 +488,7 @@ window.siteContentChunks.push({
         "老师一分钱也别想弄",
         "也别想弄"
       ]
-    },
+    },*/
     {
       slug: "strong",
       category: "Blogging",
