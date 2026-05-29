@@ -5,6 +5,9 @@ postDataReady.then((siteData) => {
   const postButtons = Array.from(document.querySelectorAll(".locale-button"));
   const postParams = new URLSearchParams(window.location.search);
   const postBody = document.getElementById("post-body");
+  const postNav = document.getElementById("post-reading-nav");
+  const postPrevLink = document.getElementById("post-prev-link");
+  const postNextLink = document.getElementById("post-next-link");
 
   let postLocale = postLocales[window.localStorage.getItem("site-locale")]
     ? window.localStorage.getItem("site-locale")
@@ -108,7 +111,9 @@ postDataReady.then((siteData) => {
     window.localStorage.setItem("site-locale", localeKey);
     const localeData = postLocales[localeKey];
     const slug = postParams.get("slug") || "";
-    const post = localeData.posts.find((item) => item.slug === slug);
+    const posts = Array.isArray(localeData.posts) ? localeData.posts : [];
+    const postIndex = posts.findIndex((item) => item.slug === slug);
+    const post = postIndex >= 0 ? posts[postIndex] : undefined;
 
     document.documentElement.lang = localeData.site.htmlLang;
     document.getElementById("post-site-name").textContent = localeData.site.name;
@@ -128,6 +133,9 @@ postDataReady.then((siteData) => {
       document.getElementById("post-meta").textContent = "";
       document.getElementById("post-title").textContent = localeData.postPage.missingTitle;
       renderBodyContent(postBody, [localeData.postPage.missingBody]);
+      if (postNav) {
+        postNav.hidden = true;
+      }
       return;
     }
 
@@ -136,6 +144,39 @@ postDataReady.then((siteData) => {
     document.getElementById("post-meta").textContent = `${post.category} / ${post.date}`;
     document.getElementById("post-title").textContent = post.title;
     renderBodyContent(postBody, post.body);
+
+    if (postNav && postPrevLink && postNextLink) {
+      const prevPost = postIndex > 0 ? posts[postIndex - 1] : null;
+      const nextPost = postIndex < posts.length - 1 ? posts[postIndex + 1] : null;
+
+      postNav.hidden = false;
+
+      postPrevLink.textContent = localeData.postPage.previous;
+      if (prevPost) {
+        postPrevLink.href = `post.html?slug=${prevPost.slug}`;
+        postPrevLink.classList.remove("is-disabled");
+        postPrevLink.removeAttribute("aria-disabled");
+        postPrevLink.tabIndex = 0;
+      } else {
+        postPrevLink.href = "#";
+        postPrevLink.classList.add("is-disabled");
+        postPrevLink.setAttribute("aria-disabled", "true");
+        postPrevLink.tabIndex = -1;
+      }
+
+      postNextLink.textContent = localeData.postPage.next;
+      if (nextPost) {
+        postNextLink.href = `post.html?slug=${nextPost.slug}`;
+        postNextLink.classList.remove("is-disabled");
+        postNextLink.removeAttribute("aria-disabled");
+        postNextLink.tabIndex = 0;
+      } else {
+        postNextLink.href = "#";
+        postNextLink.classList.add("is-disabled");
+        postNextLink.setAttribute("aria-disabled", "true");
+        postNextLink.tabIndex = -1;
+      }
+    }
   }
 
   postButtons.forEach((button) => {

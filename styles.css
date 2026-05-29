@@ -707,6 +707,49 @@ body::before {
   font-size: 1.05rem;
 }
 
+.post-reading-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.post-nav-link {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--accent-deep);
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.post-nav-link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(197, 75, 115, 0.26);
+  box-shadow: 0 14px 32px rgba(197, 75, 115, 0.12);
+}
+
+.post-nav-link-next {
+  text-align: center;
+}
+
+.post-nav-link.is-disabled {
+  color: var(--muted);
+  opacity: 0.48;
+  cursor: default;
+  pointer-events: none;
+  box-shadow: none;
+  transform: none;
+}
+
 .post-body-figure {
   margin: 34px auto;
   text-align: center;
@@ -862,6 +905,16 @@ body::before {
   .archive-pagination {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .post-reading-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .post-nav-link {
+    width: 100%;
+    text-align: center;
   }
 
   .pick-archive-header {
