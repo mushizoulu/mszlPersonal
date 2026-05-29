@@ -1,6 +1,9 @@
 (function initContentLoader() {
   window.siteContentChunks = window.siteContentChunks || [];
   window.siteContentFiles = window.siteContentFiles || [];
+  const contentLoaderUrl = document.currentScript && document.currentScript.src
+    ? new URL(document.currentScript.src)
+    : new URL("content-loader.js", window.location.href);
 
   function normalizeLocaleTargets(chunk) {
     if (Array.isArray(chunk.locales) && chunk.locales.length > 0) {
@@ -44,8 +47,10 @@
   function loadScript(path) {
     return new Promise((resolve) => {
       const script = document.createElement("script");
-      const version = window.__ASSET_VERSION__ || "20260529a";
-      script.src = `${path}?v=${encodeURIComponent(version)}`;
+      const version = window.__ASSET_VERSION__ || "20260529f";
+      const url = new URL(path, contentLoaderUrl);
+      url.searchParams.set("v", version);
+      script.src = url.href;
       script.onload = () => resolve();
       script.onerror = () => resolve();
       document.head.appendChild(script);

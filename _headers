@@ -7,6 +7,12 @@
 /
   Cache-Control: no-store
 
+/privacy
+  Cache-Control: no-store
+
+/privacy/*
+  Cache-Control: no-store
+
 /*.html
   Cache-Control: no-store
 

@@ -3,7 +3,16 @@
   const pageScript = currentScript && currentScript.dataset
     ? currentScript.dataset.pageScript
     : "";
-  const version = window.__ASSET_VERSION__ || "20260529e";
+  const version = window.__ASSET_VERSION__ || "20260529f";
+  const loaderUrl = currentScript && currentScript.src
+    ? new URL(currentScript.src)
+    : new URL("asset-loader.js", window.location.href);
+
+  function versioned(path) {
+    const url = new URL(path, loaderUrl);
+    url.searchParams.set("v", version);
+    return url.href;
+  }
 
   function appendStylesheet() {
     if (document.querySelector('link[data-asset-style="styles"]')) {
@@ -12,7 +21,7 @@
 
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = `styles.css?v=${encodeURIComponent(version)}`;
+    link.href = versioned("styles.css");
     link.dataset.assetStyle = "styles";
     document.head.appendChild(link);
   }
@@ -20,7 +29,7 @@
   function loadScript(path) {
     return new Promise((resolve) => {
       const script = document.createElement("script");
-      script.src = `${path}?v=${encodeURIComponent(version)}`;
+      script.src = versioned(path);
       script.onload = () => resolve();
       script.onerror = () => resolve();
       document.body.appendChild(script);
