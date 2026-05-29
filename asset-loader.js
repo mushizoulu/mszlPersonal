@@ -3,7 +3,7 @@
   const pageScript = currentScript && currentScript.dataset
     ? currentScript.dataset.pageScript
     : "";
-  const version = window.__ASSET_VERSION__ || "20260529c";
+  const version = window.__ASSET_VERSION__ || "20260529e";
 
   function appendStylesheet() {
     if (document.querySelector('link[data-asset-style="styles"]')) {
