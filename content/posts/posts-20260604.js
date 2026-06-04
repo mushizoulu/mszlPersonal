@@ -6,7 +6,7 @@ window.siteContentChunks.push({
         {
             slug: "2026-06-04-rights-and-obligations-zhHans",
             category: "Blogging",
-            title: "权力义务论",
+            title: "权利义务论",
             date: "2026-06-04",
             excerpt: "当一方放弃义务时，与之对应的另一方权利也会失去保障。若另一方也相应放弃义务，整个权利义务系统便会崩溃，双方重新回到弱肉强食的状态。",
             body: [
@@ -162,7 +162,7 @@ window.siteContentChunks.push({
         {
             slug: "2026-06-04-rights-and-obligations-zhHant",
             category: "Blogging",
-            title: "權力義務論",
+            title: "權利義務論",
             date: "2026-06-04",
             excerpt: "當一方放棄義務時，與之對應的另一方權利也會失去保障。若另一方也相應放棄義務，整個權利義務系統便會崩潰，雙方重新回到弱肉強食的狀態。",
             body: [
