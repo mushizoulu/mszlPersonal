@@ -8,6 +8,7 @@ postDataReady.then((siteData) => {
   const postNav = document.getElementById("post-reading-nav");
   const postPrevLink = document.getElementById("post-prev-link");
   const postNextLink = document.getElementById("post-next-link");
+  const postShare = document.getElementById("post-share");
 
   let postLocale = postLocales[window.localStorage.getItem("site-locale")]
     ? window.localStorage.getItem("site-locale")
@@ -133,6 +134,10 @@ postDataReady.then((siteData) => {
       document.getElementById("post-meta").textContent = "";
       document.getElementById("post-title").textContent = localeData.postPage.missingTitle;
       renderBodyContent(postBody, [localeData.postPage.missingBody]);
+      if (postShare) {
+        postShare.innerHTML = "";
+        postShare.className = "";
+      }
       if (postNav) {
         postNav.hidden = true;
       }
@@ -144,6 +149,17 @@ postDataReady.then((siteData) => {
     document.getElementById("post-meta").textContent = `${post.category} / ${post.date}`;
     document.getElementById("post-title").textContent = post.title;
     renderBodyContent(postBody, post.body);
+    if (postShare && window.siteShare) {
+      window.siteShare.renderShareBlock(postShare, {
+        variant: "reading",
+        labels: localeData.share,
+        payload: {
+          title: post.title,
+          excerpt: post.excerpt || window.siteShare.extractExcerptFromBody(post.body),
+          url: window.location.href
+        }
+      });
+    }
 
     if (postNav && postPrevLink && postNextLink) {
       const prevPost = postIndex > 0 ? posts[postIndex - 1] : null;

@@ -3,7 +3,7 @@
   const pageScript = currentScript && currentScript.dataset
     ? currentScript.dataset.pageScript
     : "";
-  const version = window.__ASSET_VERSION__ || "20260529f";
+  const version = window.__ASSET_VERSION__ || "20260604b";
   const loaderUrl = currentScript && currentScript.src
     ? new URL(currentScript.src)
     : new URL("asset-loader.js", window.location.href);
@@ -39,6 +39,7 @@
   async function loadPageAssets() {
     const sharedScripts = [
       "site-data.js",
+      "share-utils.js",
       "content/manifest.js",
       "content-loader.js"
     ];

@@ -306,6 +306,63 @@ body::before {
   margin-top: 28px;
 }
 
+.share-block {
+  display: grid;
+  gap: 10px;
+}
+
+.share-block--hero {
+  margin-top: 22px;
+}
+
+.share-block--reading {
+  margin-top: 20px;
+}
+
+.share-title {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.share-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.64);
+  color: var(--accent-deep);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.share-button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(197, 75, 115, 0.26);
+  box-shadow: 0 14px 32px rgba(197, 75, 115, 0.12);
+}
+
+.share-feedback {
+  min-height: 1.6em;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
 .button-secondary,
 .panel-link {
   padding: 12px 18px;
@@ -980,6 +1037,10 @@ body::before {
   .post-nav-link {
     width: 100%;
     text-align: center;
+  }
+
+  .share-button {
+    width: 100%;
   }
 
   .pick-archive-header {

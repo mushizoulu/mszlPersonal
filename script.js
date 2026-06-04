@@ -12,6 +12,7 @@ homeDataReady.then((siteData) => {
   const spotlightCopy = document.getElementById("spotlight-copy");
   const menuToggle = document.querySelector(".menu-toggle");
   const siteNav = document.getElementById("site-nav");
+  const homeShare = document.getElementById("home-share");
 
   const savedLocale = window.localStorage.getItem("site-locale");
   let currentLocale = locales[savedLocale] ? savedLocale : "zh-Hans";
@@ -144,6 +145,22 @@ homeDataReady.then((siteData) => {
     });
   }
 
+  function renderHomeShare(localeData) {
+    if (!homeShare || !window.siteShare) {
+      return;
+    }
+
+    window.siteShare.renderShareBlock(homeShare, {
+      variant: "hero",
+      labels: localeData.share,
+      payload: {
+        title: localeData.site.name,
+        excerpt: localeData.site.description,
+        url: window.location.href
+      }
+    });
+  }
+
   function applyLocale(localeKey) {
     currentLocale = localeKey;
     window.localStorage.setItem("site-locale", localeKey);
@@ -209,6 +226,7 @@ homeDataReady.then((siteData) => {
     renderWorks(localeData);
     renderPicks(localeData);
     renderPosts(localeData);
+    renderHomeShare(localeData);
 
     localeButtons.forEach((button) => {
       button.classList.toggle("is-active", button.dataset.locale === localeKey);

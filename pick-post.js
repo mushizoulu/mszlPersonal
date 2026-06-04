@@ -5,6 +5,7 @@ pickPostDataReady.then((siteData) => {
   const pickPostButtons = Array.from(document.querySelectorAll(".locale-button"));
   const pickPostParams = new URLSearchParams(window.location.search);
   const pickPostBody = document.getElementById("pick-post-body");
+  const pickPostShare = document.getElementById("pick-post-share");
 
   let pickPostLocale = pickPostLocales[window.localStorage.getItem("site-locale")]
     ? window.localStorage.getItem("site-locale")
@@ -127,6 +128,10 @@ pickPostDataReady.then((siteData) => {
       document.title = `${localeData.site.name} | ${localeData.pickPostPage.missingTitle}`;
       document.getElementById("pick-post-title").textContent = localeData.pickPostPage.missingTitle;
       renderBodyContent(pickPostBody, [localeData.pickPostPage.missingBody]);
+      if (pickPostShare) {
+        pickPostShare.innerHTML = "";
+        pickPostShare.className = "";
+      }
       document.getElementById("pick-product-link").textContent = localeData.picksPage.viewProductText;
       document.getElementById("pick-product-link").href = "#";
       return;
@@ -136,6 +141,17 @@ pickPostDataReady.then((siteData) => {
     document.querySelector('meta[name="description"]').setAttribute("content", pick.copy);
     document.getElementById("pick-post-title").textContent = pick.title;
     renderBodyContent(pickPostBody, pick.body);
+    if (pickPostShare && window.siteShare) {
+      window.siteShare.renderShareBlock(pickPostShare, {
+        variant: "reading",
+        labels: localeData.share,
+        payload: {
+          title: pick.title,
+          excerpt: pick.copy || window.siteShare.extractExcerptFromBody(pick.body),
+          url: window.location.href
+        }
+      });
+    }
     document.getElementById("pick-product-link").textContent = localeData.picksPage.viewProductText;
     document.getElementById("pick-product-link").href = pick.productLink;
   }

@@ -93,6 +93,16 @@ window.siteData = {
         missingTitle: "未找到这篇推荐文章",
         missingBody: "你要查看的推荐文章不存在，或者已经被移除。"
       },
+      share: {
+        title: "分享到",
+        x: "X",
+        threads: "Threads",
+        weibo: "微博",
+        copyLink: "复制链接",
+        copySuccess: "链接已复制",
+        threadsCopied: "已复制标题、摘要和链接",
+        copyFailed: "复制失败，请手动复制"
+      },
       works: [],
       posts: [],
       picks: []
@@ -189,6 +199,16 @@ window.siteData = {
         missingTitle: "找不到這篇推薦文章",
         missingBody: "你要查看的推薦文章不存在，或者已經被移除。"
       },
+      share: {
+        title: "分享到",
+        x: "X",
+        threads: "Threads",
+        weibo: "微博",
+        copyLink: "複製連結",
+        copySuccess: "連結已複製",
+        threadsCopied: "已複製標題、摘要和連結",
+        copyFailed: "複製失敗，請手動複製"
+      },
       works: [],
       posts: [],
       picks: []
@@ -284,6 +304,16 @@ window.siteData = {
       pickPostPage: {
         missingTitle: "おすすめ記事が見つかりません",
         missingBody: "指定されたおすすめ記事は存在しないか、すでに削除されています。"
+      },
+      share: {
+        title: "Share",
+        x: "X",
+        threads: "Threads",
+        weibo: "Weibo",
+        copyLink: "リンクをコピー",
+        copySuccess: "リンクをコピーしました",
+        threadsCopied: "タイトル、抜粋、リンクをコピーしました",
+        copyFailed: "コピーできませんでした。手動でコピーしてください"
       },
       works: [],
       posts: [],

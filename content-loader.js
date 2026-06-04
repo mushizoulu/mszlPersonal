@@ -47,7 +47,7 @@
   function loadScript(path) {
     return new Promise((resolve) => {
       const script = document.createElement("script");
-      const version = window.__ASSET_VERSION__ || "20260529f";
+      const version = window.__ASSET_VERSION__ || "20260604b";
       const url = new URL(path, contentLoaderUrl);
       url.searchParams.set("v", version);
       script.src = url.href;
