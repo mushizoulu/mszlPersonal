@@ -4,7 +4,7 @@ window.siteContentFiles = [
   "content/posts/posts-20260530.js",
   "content/posts/posts-20260604.js",
   "content/picks/picks-20260528.js",
-  "content/picks/posts-20260801.js"
+  "content/posts/posts-20260801.js"
   
 ];
 
