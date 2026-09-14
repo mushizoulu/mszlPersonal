@@ -39,6 +39,7 @@ window.siteData = {
       buttons: {
         primary: "先看推荐",
         secondary: "进入博客",
+        inputTrial: "日文输入试打",
         viewProduct: "查看推荐产品页面",
         readArticle: "阅读全文",
         backHome: "返回首页",
@@ -145,6 +146,7 @@ window.siteData = {
       buttons: {
         primary: "先看推薦",
         secondary: "進入部落格",
+        inputTrial: "日文輸入試打",
         viewProduct: "查看推薦產品頁面",
         readArticle: "閱讀全文",
         backHome: "返回首頁",
@@ -251,6 +253,7 @@ window.siteData = {
       buttons: {
         primary: "おすすめを見る",
         secondary: "ブログへ",
+        inputTrial: "日本語入力を試す",
         viewProduct: "商品ページを見る",
         readArticle: "全文を読む",
         backHome: "トップへ戻る",
