@@ -26,7 +26,7 @@
           └─ 当前页面脚本       script.js / blog.js / works.js ...
 ```
 
-仓库是纯前端项目，没有 `package.json`、打包器或后端 API。HTML 先提供稳定的 DOM 容器，脚本在浏览器中读取数据并渲染页面。除隐私政策页外，各页面都通过 `asset-loader.js` 加载共享资源。
+仓库是纯前端项目，没有 `package.json`、打包器或后端 API。HTML 先提供稳定的 DOM 容器，脚本在浏览器中读取数据并渲染页面。各 HTML 入口都通过 `asset-loader.js` 加载公共资源；隐私政策页不指定页面脚本。
 
 ### 资源版本和缓存
 
@@ -137,7 +137,7 @@ body: [
 ## 分享、隐私和部署配置
 
 - `share-utils.js` 提供 X、Threads、微博和复制链接四种操作。首页、博客正文和推荐正文通过同一模块渲染，只传入当前语言的按钮文案与分享内容。
-- `privacy/index.html` 是完全静态的政策页；它加载版本脚本和公共样式，但没有主站内容数据或语言按钮。
+- `privacy/index.html` 是完全静态的政策页；它不使用主站内容数据或语言按钮，只展示页面内置的四种政策文本。
 - `_headers` 为根页面、HTML、版本文件、JS、CSS、`content/` 和 `japanese-input/` 分别设置 `Cache-Control`。入口和版本文件使用 `no-store`，脚本、样式和内容使用重新验证策略。
 - 推送到 `main` 后由 Cloudflare Pages 自动部署。仓库没有需要执行的构建命令，发布目录就是仓库根目录。
 
