@@ -29,6 +29,7 @@ window.siteData = {
         blog: "博客",
         picks: "推荐清单",
         about: "关于我",
+        japaneseInput: "日文输入法",
         contact: "合作联系"
       },
       switcher: {
@@ -136,6 +137,7 @@ window.siteData = {
         blog: "部落格",
         picks: "推薦清單",
         about: "關於我",
+        japaneseInput: "日文輸入法",
         contact: "合作聯絡"
       },
       switcher: {
@@ -243,6 +245,7 @@ window.siteData = {
         blog: "ブログ",
         picks: "おすすめ",
         about: "プロフィール",
+        japaneseInput: "日本語入力法",
         contact: "連絡先"
       },
       switcher: {

@@ -190,6 +190,7 @@ homeDataReady.then((siteData) => {
     setText("nav-works", localeData.nav.works);
     setText("nav-blog", localeData.nav.blog);
     setText("nav-about", localeData.nav.about);
+    setText("nav-japanese-input", localeData.nav.japaneseInput);
     setText("nav-contact", localeData.nav.contact);
 
     setText("hero-primary", localeData.buttons.primary);
