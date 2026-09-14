@@ -194,6 +194,7 @@ homeDataReady.then((siteData) => {
 
     setText("hero-primary", localeData.buttons.primary);
     setText("hero-secondary", localeData.buttons.secondary);
+    setText("hero-input", localeData.buttons.inputTrial);
     setText("works-eyebrow", localeData.sections.worksEyebrow);
     setText("works-title", localeData.sections.worksTitle);
     setText("works-description", localeData.sections.worksDescription);
