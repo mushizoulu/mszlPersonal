@@ -17,6 +17,32 @@ function undo(s) {
   if(s.history.length) Object.assign(s,s.history.pop());
   s.activeRow=null; // undo must not re-arm a physically held row
 }
+function isSuffixPredecessor(current,previous) {
+  if(!previous||current.units.length!==previous.units?.length) return false;
+  const a=clone(current), b=clone(previous);
+  const au=a.units.at(-1), bu=b.units.at(-1);
+  if(au?.kind!=='kana'||bu?.kind!=='kana'||!au.suffix) return false;
+  const currentSuffix=au.suffix, previousSuffix=bu.suffix||'';
+  if(currentSuffix===previousSuffix) return false;
+  au.suffix='';bu.suffix='';
+  return JSON.stringify(a)===JSON.stringify(b);
+}
+// Later completed units may have been deleted after an invalid suffix was
+// entered. Skip their deletion snapshots instead of restoring one of them.
+function undoTailSuffix(s) {
+  const current=snapshot(s);
+  for(let i=s.history.length-1;i>=0;i--) {
+    if(!isSuffixPredecessor(current,s.history[i])) continue;
+    const previous=clone(s.history[i]);
+    s.history=s.history.slice(0,i);
+    Object.assign(s,previous);
+    s.activeRow=null;
+    return true;
+  }
+  const u=last(s);
+  if(u?.suffix) {u.suffix='';s.activeRow=null;}
+  return false;
+}
 // Delete a completed input unit, never walk its segment/modifier history.
 function deleteTail(s) {
   const u=s.units.at(-1);
@@ -101,8 +127,10 @@ export function transition(previous,event) {
       return;
     }
     if(back) {
-      if(s.candidate||s.pending||last(s)?.suffix) {
+      if(s.candidate||s.pending) {
         undo(s);clearHistory='undo';
+      } else if(last(s)?.suffix) {
+        if(undoTailSuffix(s)) clearHistory='undo';
       } else deleteTail(s);
       return;
     }
